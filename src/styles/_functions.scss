@@ -1,0 +1,6 @@
+$fz: 16;
+$blanco: #ffffff;
+$negro: #000000;
+@function rem($px) {
+  @return $px / $fz + rem;
+}

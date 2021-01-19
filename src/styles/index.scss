@@ -1,0 +1,15 @@
+@import './navbar';
+@import './banner';
+@font-face {
+  font-family: 'font';
+  src: url('./font/font.ttf');
+  src: local('font');
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: 'font';
+  text-decoration: none;
+}
