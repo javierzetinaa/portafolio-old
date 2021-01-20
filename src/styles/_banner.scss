@@ -28,17 +28,17 @@
   }
   &__title,
   &__subtitle {
-    color: $blanco;
     margin: 0;
     text-align: center;
     z-index: 100;
+    color: $blanco;
   }
   &__title {
     text-transform: uppercase;
     font-size: rem(70);
   }
   &__subtitle {
-    font-size: rem(35);
+    font-size: rem(45);
   }
   &__abajo {
     border-left: transparent solid rem(20);
@@ -49,15 +49,33 @@
     bottom: 10%;
     z-index: 100;
     cursor: pointer;
-    animation: boton infinite 2s ease;
+    opacity: 1;
+    transition: opacity ease 0.3s;
+    &:hover {
+      opacity: 0.7;
+    }
   }
-}
-
-@keyframes boton {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.1);
+  &__contacto {
+    position: absolute;
+    left: 0;
+    transform: translate(0, -50%);
+    top: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    color: $blanco;
+    z-index: 100;
+    margin: 0 rem(20);
+    .red-social {
+      i {
+        font-size: rem(35);
+        margin: rem(15) 0;
+        cursor: pointer;
+      }
+      &:hover i {
+        transform: scale(1.2);
+        opacity: 0.8;
+      }
+    }
   }
 }

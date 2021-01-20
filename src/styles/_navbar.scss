@@ -1,25 +1,41 @@
 @import './functions';
 header {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  justify-content: space-between;
   height: 100px;
   width: 100%;
   position: fixed;
   top: 0;
   z-index: 500;
   padding: 0 rem(40);
-  flex: 1;
   .logo {
-    width: rem(80);
     cursor: pointer;
+    z-index: 500;
+    .logo-img {
+      width: rem(80);
+    }
   }
-  nav {
+  .navbar {
+    display: block;
     ul {
       display: flex;
       width: 100%;
       align-items: center;
       height: 100%;
+      @media screen and (max-width: 850px) {
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%;
+        background: #111111;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        justify-content: center;
+        z-index: 50;
+        height: 100vh;
+      }
       li {
         list-style: none;
         .btn {
@@ -28,6 +44,9 @@ header {
           position: relative;
           font-size: rem(20);
           color: $blanco;
+          @media screen and (max-width: 850px) {
+            display: block;
+          }
           &::before {
             content: '';
             display: block;
@@ -38,15 +57,18 @@ header {
             left: 50%;
             bottom: 0;
             transition: all ease 0.3s;
+            opacity: 0;
           }
           &:hover:before {
             width: 100%;
             left: 0;
+            opacity: 1;
           }
         }
         .btn.btn-active::before {
           width: 100%;
           left: 0;
+          opacity: 1;
         }
       }
     }
@@ -56,6 +78,8 @@ header {
     color: $blanco;
     padding: rem(15) rem(20);
     position: relative;
+    margin-left: auto;
+    z-index: 500;
     &::after,
     &::before {
       content: '';
@@ -84,6 +108,35 @@ header {
       width: 100%;
       left: 0;
       opacity: 1;
+    }
+  }
+}
+.menu-icon {
+  display: none;
+  color: $blanco;
+  z-index: 100;
+  font-size: rem(20);
+  cursor: pointer;
+  color: $blanco;
+  opacity: 1;
+  transition: opacity ease 0.3s;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+@media screen and (max-width: 850px) {
+  .menu-icon {
+    display: block;
+  }
+  header {
+    .navbar {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .navbar.active {
+      display: block;
     }
   }
 }
