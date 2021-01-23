@@ -7,7 +7,7 @@ import Works from './pages/Works.screen';
 export default function AppRouter() {
   return (
     <Router>
-      <div>
+      <>
         <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
@@ -15,7 +15,7 @@ export default function AppRouter() {
           <Route exact path="/precios" component={Pricing} />
           <Route exact path="/contacto" component={Contact} />
         </Switch>
-      </div>
+      </>
     </Router>
   );
 }

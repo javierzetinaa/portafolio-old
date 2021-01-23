@@ -16,7 +16,7 @@ export default function Banner() {
           <i className="fab fa-instagram"></i>
         </a>
       </div>
-      <div className="banner__abajo"></div>
+      <div className="banner__abajo" id="banner-btn"></div>
     </div>
   );
 }

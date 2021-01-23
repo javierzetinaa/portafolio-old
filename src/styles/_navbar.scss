@@ -38,11 +38,14 @@ header {
       }
       li {
         list-style: none;
+        text-align: center;
+        display: flex;
         .btn {
           margin: 0 rem(10);
           padding: rem(15) rem(25);
           position: relative;
           font-size: rem(20);
+          text-align: center;
           color: $blanco;
           @media screen and (max-width: 850px) {
             display: block;
@@ -52,7 +55,7 @@ header {
             display: block;
             width: 0;
             height: 3px;
-            background: $blanco;
+            //background: $blanco;
             position: absolute;
             left: 50%;
             bottom: 0;
@@ -63,6 +66,21 @@ header {
             width: 100%;
             left: 0;
             opacity: 1;
+          }
+        }
+        .btn.normal {
+          &::before {
+            background: $blanco;
+          }
+        }
+        .btn.dark {
+          &::before {
+            background: $blanco;
+            background-image: linear-gradient(
+              to right,
+              rgba(#439cfb, 1),
+              rgba(#f187fb, 1)
+            );
           }
         }
         .btn.btn-active::before {
@@ -86,7 +104,7 @@ header {
       display: block;
       width: 0;
       height: 3px;
-      background: $blanco;
+      //background: $blanco;
       position: absolute;
       transition: all ease 0.3s;
       opacity: 0;
@@ -109,7 +127,32 @@ header {
       left: 0;
       opacity: 1;
     }
+    @media screen and (max-width: 850px) {
+      margin: auto;
+    }
   }
+  .contacto.normal {
+    &::after,
+    &::before {
+      background: $blanco;
+    }
+  }
+  .contacto.dark {
+    &::after,
+    &::before {
+      background: $blanco;
+      background-image: linear-gradient(
+        to right,
+        rgba(#439cfb, 1),
+        rgba(#f187fb, 1)
+      );
+    }
+  }
+}
+.header.blur {
+  background: rgba(#111111, 1);
+  transition: background ease 0.3s;
+  box-shadow: 0px 2px 25px 2px rgba($color: #000000, $alpha: 0.5);
 }
 .menu-icon {
   display: none;
@@ -127,6 +170,7 @@ header {
 @media screen and (max-width: 850px) {
   .menu-icon {
     display: block;
+    margin-left: auto;
   }
   header {
     .navbar {
